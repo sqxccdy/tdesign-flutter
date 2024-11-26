@@ -9,7 +9,7 @@ import '../../../tdesign_flutter.dart';
 import '../../util/version_util.dart';
 
 /// 是否启用强制居中
-var kTextForceVerticalCenterEnable = true;
+var kTextForceVerticalCenterEnable = false;
 
 /// 是否启用全局字体
 var kTextNeedGlobalFontFamily = true;

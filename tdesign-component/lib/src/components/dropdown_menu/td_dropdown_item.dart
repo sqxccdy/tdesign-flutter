@@ -204,7 +204,7 @@ class _TDDropdownItemState extends State<TDDropdownItem> {
     var radios = TDRadioGroup(
       onRadioGroupChange: _handleSelectChange,
       radioCheckStyle: TDRadioStyle.check,
-      selectId: selected.isEmpty ? null : selected[0]?.value,
+      selectId: selected.isEmpty ? null : [selected[0]!.value],
       child: Column(
         children: List.generate(
           widget.options?.length ?? 0,

@@ -50,7 +50,7 @@ class TDRadio extends TDCheckbox {
             enable: enable,
             size: size,
             cardMode: cardMode ?? false,
-            showDivider: showDivider ?? true,
+            showDivider: showDivider ?? false,
             titleMaxLine: titleMaxLine,
             customContentBuilder: customContentBuilder,
             contentDirection: contentDirection,
@@ -190,7 +190,7 @@ class TDRadioGroup extends TDCheckboxGroup {
     Widget? child, // 使用child 则请勿设置direction
     Axis? direction, // direction 对 directionalTdRadios 起作用
     List<TDRadio>? directionalTdRadios,
-    String? selectId, // 默认选择项的id
+    List<String>? selectId, // 默认选择项的id
     bool? passThrough, // 非通栏单选样式 用于使用child 或 direction == Axis.vertical 场景
     bool cardMode = false,
     this.strictMode = true,
@@ -336,7 +336,7 @@ class TDRadioGroup extends TDCheckboxGroup {
             onRadioGroupChange?.call(ids.isNotEmpty ? ids[0] : null);
           },
           controller: null,
-          checkedIds: selectId != null ? [selectId] : null,
+          checkedIds: selectId,
           maxChecked: 1,
           titleMaxLine: titleMaxLine,
           contentDirection: contentDirection,

@@ -23,6 +23,8 @@ enum TDContentDirection {
 enum TDCheckBoxSize {
   large, // 大 高度56
   small, // 小 高度48
+  extraSmall, // 额外小 高度 32
+  none
 }
 
 ///
@@ -66,7 +68,7 @@ class TDCheckbox extends StatefulWidget {
       this.disableColor,
       this.size = TDCheckBoxSize.small,
       this.cardMode = false,
-      this.showDivider = true,
+      this.showDivider = false,
       this.contentDirection = TDContentDirection.right,
       this.onCheckBoxChanged,
       this.titleColor,
@@ -214,10 +216,14 @@ class TDCheckboxState extends State<TDCheckbox> {
       return const EdgeInsets.only(top: 16);
     }
     switch (size) {
+      case TDCheckBoxSize.extraSmall:
+        return const EdgeInsets.only(top: 8, bottom: 8);
       case TDCheckBoxSize.small:
         return const EdgeInsets.only(top: 12, bottom: 12);
       case TDCheckBoxSize.large:
         return const EdgeInsets.only(top: 16, bottom: 16);
+      case TDCheckBoxSize.none:
+        return const EdgeInsets.only(top: 0, bottom: 0);
     }
   }
 

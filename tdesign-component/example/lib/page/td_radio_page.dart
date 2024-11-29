@@ -59,7 +59,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _verticalRadios(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       child: ListView.builder(
         padding: const EdgeInsets.all(0),
         shrinkWrap: true,
@@ -89,7 +89,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _horizontalRadios(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       direction: Axis.horizontal,
       directionalTdRadios: const [
         TDRadio(
@@ -118,7 +118,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   Widget _radioStatus(BuildContext context) {
     return TDRadioGroup(
       contentDirection: TDContentDirection.right,
-      selectId: '0',
+      selectId: ['0'],
       child: Column(
         children: const [
           TDRadio(
@@ -144,7 +144,7 @@ class TDRadioPageState extends State<TDRadioPage> {
       children: [
         TDRadioGroup(
           radioCheckStyle: TDRadioStyle.check,
-          selectId: 'index:0',
+          selectId: ['index:0'],
           child: const TDRadio(
             id: 'index:0',
             title: '单选',
@@ -155,7 +155,7 @@ class TDRadioPageState extends State<TDRadioPage> {
         ),
         TDRadioGroup(
           radioCheckStyle: TDRadioStyle.hollowCircle,
-          selectId: 'index:0',
+          selectId:[ 'index:0'],
           child: const TDRadio(
             id: 'index:0',
             title: '单选',
@@ -171,7 +171,7 @@ class TDRadioPageState extends State<TDRadioPage> {
       children: [
         TDRadioGroup(
           contentDirection: TDContentDirection.right,
-          selectId: 'index:0',
+          selectId: ['index:0'],
           child: const TDRadio(
             id: 'index:0',
             title: '单选',
@@ -179,7 +179,7 @@ class TDRadioPageState extends State<TDRadioPage> {
         ),
         TDRadioGroup(
           contentDirection: TDContentDirection.left,
-          selectId: 'index:0',
+          selectId: ['index:0'],
           child: const TDRadio(
             id: 'index:0',
             title: '单选',
@@ -193,7 +193,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _passThroughStyle(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:0',
+      selectId: ['index:0'],
       passThrough: true,
       child: ListView.builder(
         padding: const EdgeInsets.all(0),
@@ -215,7 +215,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _verticalCardStyle(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       cardMode: true,
       direction: Axis.vertical,
       directionalTdRadios: const [
@@ -258,7 +258,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _horizontalCardStyle(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       cardMode: true,
       direction: Axis.horizontal,
       rowCount: 2,
@@ -290,7 +290,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _showBottomLine(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       direction: Axis.horizontal,
       showDivider: true,
       directionalTdRadios: const [
@@ -319,7 +319,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _customBottomLine(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       direction: Axis.horizontal,
       showDivider: true,
       divider: const TDDivider(
@@ -352,7 +352,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   @Demo(group: 'radio')
   Widget _customColorAndFont(BuildContext context) {
     return TDRadioGroup(
-      selectId: 'index:1',
+      selectId: ['index:1'],
       child: ListView(
         padding: const EdgeInsets.all(0),
         shrinkWrap: true,
@@ -431,7 +431,7 @@ class TDRadioPageState extends State<TDRadioPage> {
   Widget _customDisableColorAndFont(BuildContext context) {
     return TDRadioGroup(
       contentDirection: TDContentDirection.right,
-      selectId: '0',
+      selectId:[ '0'],
       child: Column(
         children: [
           TDRadio(

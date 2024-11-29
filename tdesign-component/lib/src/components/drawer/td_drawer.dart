@@ -29,8 +29,10 @@ class TDDrawer {
     this.onClose,
     this.onItemClick,
     this.width = 280,
+    this.height = 280,
     this.drawerTop,
     this.style,
+    this.child,
     this.hover = true,
     this.backgroundColor,
     this.bordered = true,
@@ -42,6 +44,7 @@ class TDDrawer {
   }
 
   /// 上下文
+  final Widget? child;
   final BuildContext context;
 
   /// 点击蒙层时是否关闭抽屉
@@ -76,6 +79,7 @@ class TDDrawer {
 
   /// 宽度
   final double? width;
+  final double? height;
 
   /// 距离顶部的距离
   final double? drawerTop;
@@ -106,7 +110,7 @@ class TDDrawer {
           ? SlideTransitionFrom.right
           : SlideTransitionFrom.left,
       isDismissible: (showOverlay ?? true) ? (closeOnOverlayClick ?? true) : false,
-      modalBarrierColor: (showOverlay ?? true) ? null : Colors.transparent,
+      modalBarrierColor: Colors.transparent,
       modalTop: drawerTop,
       builder: (context) {
         var cellStyle = style;
@@ -137,28 +141,41 @@ class TDDrawer {
             .values
             .toList();
         return Container(
-          color: backgroundColor ?? Colors.white,
           width: width ?? 280,
-          height: double.infinity,
-          child: Column(
-            children: [
-              Expanded(
-                child: TDCellGroup(
-                  title: title,
-                  titleWidget: titleWidget,
-                  style: cellStyle,
-                  scrollable: true,
-                  isShowLastBordered: isShowLastBordered,
-                  cells: cells ?? [],
+          height: height,
+          margin:EdgeInsets.only(left: 20, top: 20, bottom: 20),
+            child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                  boxShadow: const [
+                    BoxShadow(color: Color(0x3F000000),offset: Offset(0,4), blurRadius: 10, spreadRadius: 0),
+                  ],
+                  color: backgroundColor ?? Colors.white,
                 ),
-              ),
-              if (footer != null)
-                Container(
-                  padding: EdgeInsets.all(TDTheme.of(context).spacer16),
-                  child: footer,
-                ),
-            ],
-          ),
+              child: child,
+          )
+          // child: Column(
+          //   children: [
+          //     Expanded(
+          //       child: TDCellGroup(
+          //         title: title,
+          //         titleWidget: titleWidget,
+          //         style: cellStyle,
+          //         scrollable: true,
+          //         isShowLastBordered: isShowLastBordered,
+          //         cells: cells ?? [],
+          //       ),
+          //     ),
+          //     if (footer != null)
+          //       Container(
+          //         padding: EdgeInsets.all(TDTheme.of(context).spacer16),
+          //         child: footer,
+          //       ),
+          //   ],
+          // ),
         );
       },
     );

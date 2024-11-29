@@ -139,7 +139,7 @@ class TDTab extends Tab {
           text!,
           softWrap: false,
           overflow: TextOverflow.fade,
-          style: TextStyle(fontSize: _getFontSize()),
+          style: TextStyle(fontSize: _getFontSize(), fontFamily: 'Microsoft YaHei'),
         );
   }
 

@@ -119,7 +119,7 @@ class TDTablePage extends StatelessWidget {
         TDTableCol(
           title: '标题',
           colKey: 'title4',
-          cellBuilder: (BuildContext context) {
+          cellBuilder: (BuildContext context, record) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -160,7 +160,7 @@ class TDTablePage extends StatelessWidget {
         TDTableCol(
           title: '标题',
           colKey: 'title4',
-          cellBuilder: (BuildContext context) {
+          cellBuilder: (BuildContext context, record) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -199,7 +199,7 @@ class TDTablePage extends StatelessWidget {
           title: '标题',
           colKey: 'title4',
           fixed: TDTableColFixed.right,
-          cellBuilder: (BuildContext context) {
+          cellBuilder: (BuildContext context, record) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -292,7 +292,7 @@ class TDTablePage extends StatelessWidget {
           title: '标题',
           colKey: 'title4',
           fixed: TDTableColFixed.right,
-          cellBuilder: (BuildContext context) {
+          cellBuilder: (BuildContext context, record) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

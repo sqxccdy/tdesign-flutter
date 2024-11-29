@@ -351,6 +351,7 @@ class _TDTextToast extends StatelessWidget {
           ),
           child: TDText(
             text ?? '',
+            fontFamily: FontFamily(fontFamily: 'Microsoft YaHei'),
             font: TDTheme.of(context).fontBodyMedium,
             fontWeight: FontWeight.w400,
             maxLines: maxLines ?? 3,

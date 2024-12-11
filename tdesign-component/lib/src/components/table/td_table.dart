@@ -43,7 +43,7 @@ class TDTableCol {
   bool? ellipsisTitle;
 
   /// 自定义列
-  Widget Function(BuildContext context, dynamic record)? cellBuilder;
+  Widget Function(BuildContext context, Map<String, dynamic> record)? cellBuilder;
 
   /// 列内容横向对齐方式
   TDTableColAlign? align;
@@ -297,7 +297,7 @@ class TDTableState extends State<TDTable> {
               child: Align(
                 alignment: _getVerticalAlign(col.align!),
                 child: _getCellText(
-                    col, title, ellipsis, isHeader, sortable, index),
+                    col, title, data, ellipsis, isHeader, sortable, index),
               ),
             ),
           )),
@@ -306,7 +306,7 @@ class TDTableState extends State<TDTable> {
   }
 
   /// 获取单元格内容
-  Widget _getCellText(TDTableCol col, String title, bool ellipsis,
+  Widget _getCellText(TDTableCol col, String title, dynamic data, bool ellipsis,
       bool isHeader, bool sortable, int index) {
     var overflow = ellipsis ? TextOverflow.ellipsis : TextOverflow.visible;
     var titleWidget = TDText(title,
@@ -375,7 +375,7 @@ class TDTableState extends State<TDTable> {
     }
     // 自定义单元格内容
     if (col.cellBuilder != null) {
-      return col.cellBuilder!(context, title);
+      return col.cellBuilder!(context, data);
     }
     return titleWidget;
   }

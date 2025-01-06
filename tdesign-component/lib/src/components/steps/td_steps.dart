@@ -50,6 +50,7 @@ class TDSteps extends StatefulWidget {
     required this.steps,
     this.activeIndex = 0,
     this.direction = TDStepsDirection.horizontal,
+    this.textDirection = TDStepsDirection.vertical,
     this.status = TDStepsStatus.success,
     this.simple = false,
     this.readOnly = false,
@@ -60,6 +61,8 @@ class TDSteps extends StatefulWidget {
   final List<TDStepsItemData> steps;
   /// 步骤条方向
   final TDStepsDirection direction;
+  /// 文字方向
+  final TDStepsDirection textDirection;
   /// 步骤条当前激活的索引
   final int activeIndex;
   /// 步骤条状态
@@ -87,7 +90,8 @@ class _TDStepsState extends State<TDSteps> {
         activeIndex: currentActiveIndex,
         status: widget.status,
         simple: widget.simple,
-        readOnly: widget.readOnly
+        readOnly: widget.readOnly,
+        textDirection: widget.textDirection
       ):
       TDStepsVertical(
         steps: widget.steps,

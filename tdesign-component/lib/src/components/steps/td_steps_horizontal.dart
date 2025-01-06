@@ -9,6 +9,7 @@ class TDStepsHorizontal extends StatelessWidget {
   final TDStepsStatus status;
   final bool simple;
   final bool readOnly;
+  final TDStepsDirection textDirection;
   const TDStepsHorizontal({
     super.key,
     required this.steps,
@@ -16,6 +17,7 @@ class TDStepsHorizontal extends StatelessWidget {
     required this.status,
     required this.simple,
     required this.readOnly,
+    required this.textDirection,
   });
 
   @override
@@ -32,6 +34,7 @@ class TDStepsHorizontal extends StatelessWidget {
           status: status,
           simple: simple,
           readOnly: readOnly,
+          textDirection: textDirection
         ),
       );
     }).toList();

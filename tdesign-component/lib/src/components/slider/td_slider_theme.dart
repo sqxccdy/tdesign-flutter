@@ -39,7 +39,8 @@ class TDSliderThemeData {
 
   ///分割几块
   final int? divisions;
-
+  ///分割几块
+  final int? renderDivisions;
   ///最小值
   final double min;
 
@@ -65,6 +66,7 @@ class TDSliderThemeData {
     this.showScaleValue = false,
     this.showThumbValue = false,
     this.divisions,
+    this.renderDivisions,
     TextStyle? scaleTextStyle,
     TextStyle? disabledScaleTextStyle,
     TextStyle? thumbTextStyle,
@@ -88,6 +90,7 @@ class TDSliderThemeData {
     this.showScaleValue = false,
     this.showThumbValue = false,
     this.divisions,
+    this.renderDivisions,
     TextStyle? scaleTextStyle,
     TextStyle? disabledScaleTextStyle,
     TextStyle? thumbTextStyle,
@@ -178,6 +181,7 @@ class TDSliderThemeData {
     TextStyle? scaleTextStyle,
     TextStyle? thumbTextStyle,
     int? divisions,
+    int? renderDivisions,
     double? min,
     double? max,
     ScaleFormatter? scaleFormatter,
@@ -190,6 +194,7 @@ class TDSliderThemeData {
         scaleTextStyle: scaleTextStyle ?? this.scaleTextStyle,
         thumbTextStyle: thumbTextStyle ?? this.thumbTextStyle,
         divisions: divisions ?? this.divisions,
+        renderDivisions: renderDivisions ?? this.renderDivisions,
         min: min ?? this.min,
         max: max ?? this.max,
         scaleFormatter: scaleFormatter ?? this.scaleFormatter);
@@ -525,9 +530,9 @@ class TDRoundSliderTickMarkShape extends SliderTickMarkShape {
         ).width /
         2;
     if (tickMarkRadius > 0 && themeData.showScaleValue) {
-      assert(themeData.divisions != null);
+      assert(themeData.renderDivisions != null);
       var rect = sliderTheme.trackShape?.getPreferredRect(parentBox: parentBox, sliderTheme: sliderTheme);
-      if (rect != null && themeData.divisions! > 0) {
+      if (rect != null && themeData.renderDivisions! > 0) {
         //轨道的高度
         var trackHeight = rect.bottom - rect.top;
         //最左边的刻度中心到最右边刻度中心的长度
@@ -535,12 +540,12 @@ class TDRoundSliderTickMarkShape extends SliderTickMarkShape {
         //最左边刻度的起点
         var markStart = rect.left + trackHeight / 2;
         //每个刻度的宽度
-        var perWidth = markWidth / themeData.divisions!;
+        var perWidth = markWidth / themeData.renderDivisions!;
         assert(perWidth > 0);
         //计算当前是第几个刻度
         var index = ((center.dx - markStart) / perWidth).round();
         //获取当前刻度的值
-        var value = themeData.min + index * ((themeData.max - themeData.min) / themeData.divisions!);
+        var value = themeData.min + index * ((themeData.max - themeData.min) / themeData.renderDivisions!);
         //格式化数值
         var valueFormatter = themeData.scaleFormatter != null ? themeData.scaleFormatter!(value) : value.toString();
         //绘制刻度的值
@@ -555,7 +560,7 @@ class TDRoundSliderTickMarkShape extends SliderTickMarkShape {
         var x = center.dx - painter.size.width / 2;
         if (index == 0) {
           x = center.dx - trackHeight;
-        } else if (index == themeData.divisions) {
+        } else if (index == themeData.renderDivisions) {
           x = center.dx - painter.size.width + trackHeight;
         }
         painter.paint(context.canvas, Offset(x, center.dy - painter.height - 14));
@@ -956,9 +961,9 @@ class TDRoundRangeSliderTickMarkShape extends RangeSliderTickMarkShape {
         ).width /
         2;
     if (tickMarkRadius > 0 && themeData.showScaleValue) {
-      assert(themeData.divisions != null);
+      assert(themeData.renderDivisions != null);
       var rect = sliderTheme.rangeTrackShape?.getPreferredRect(parentBox: parentBox, sliderTheme: sliderTheme);
-      if (rect != null && themeData.divisions! > 0) {
+      if (rect != null && themeData.renderDivisions! > 0) {
         //轨道的高度
         var trackHeight = rect.bottom - rect.top;
         //最左边的刻度中心到最右边刻度中心的长度
@@ -966,12 +971,12 @@ class TDRoundRangeSliderTickMarkShape extends RangeSliderTickMarkShape {
         //最左边刻度的起点
         var markStart = rect.left + trackHeight / 2;
         //每个刻度的宽度
-        var perWidth = markWidth / themeData.divisions!;
+        var perWidth = markWidth / themeData.renderDivisions!;
         assert(perWidth > 0);
         //计算当前是第几个刻度
         var index = ((center.dx - markStart) / perWidth).round();
         //获取当前刻度的值
-        var value = themeData.min + index * ((themeData.max - themeData.min) / themeData.divisions!);
+        var value = themeData.min + index * ((themeData.max - themeData.min) / themeData.renderDivisions!);
         //格式化数值
         var valueFormatter = themeData.scaleFormatter != null ? themeData.scaleFormatter!(value) : value.toString();
         //绘制刻度的值
@@ -986,7 +991,7 @@ class TDRoundRangeSliderTickMarkShape extends RangeSliderTickMarkShape {
         var x = center.dx - painter.size.width / 2;
         if (index == 0) {
           x = center.dx - trackHeight;
-        } else if (index == themeData.divisions) {
+        } else if (index == themeData.renderDivisions) {
           x = center.dx - painter.size.width + trackHeight;
         }
         painter.paint(context.canvas, Offset(x, center.dy - painter.height - 14));
@@ -1318,9 +1323,9 @@ class TDCapsuleSliderTickMarkShape extends SliderTickMarkShape {
         2;
     var dx = center.dx;
     if (tickMarkRadius > 0 && themeData.showScaleValue) {
-      assert(themeData.divisions != null);
+      assert(themeData.renderDivisions != null);
       var rect = sliderTheme.trackShape?.getPreferredRect(parentBox: parentBox, sliderTheme: sliderTheme);
-      if (rect != null && themeData.divisions! > 0) {
+      if (rect != null && themeData.renderDivisions! > 0) {
         //轨道的高度
         var trackHeight = rect.bottom - rect.top;
         //最左边的刻度中心到最右边刻度中心的长度
@@ -1328,14 +1333,14 @@ class TDCapsuleSliderTickMarkShape extends SliderTickMarkShape {
         //最左边刻度的起点
         var markStart = rect.left + trackHeight / 2;
         //每个刻度的宽度
-        var perWidth = markWidth / themeData.divisions!;
+        var perWidth = markWidth / themeData.renderDivisions!;
         assert(perWidth > 0);
         //计算当前是第几个刻度
         var index = ((center.dx - markStart) / perWidth).round();
         //获取当前刻度的值
-        var value = themeData.min + index * ((themeData.max - themeData.min) / themeData.divisions!);
+        var value = themeData.min + index * ((themeData.max - themeData.min) / themeData.renderDivisions!);
         //修正x坐标
-        dx = rect.left + index * (((rect.right - rect.left) / themeData.divisions!));
+        dx = rect.left + index * (((rect.right - rect.left) / themeData.renderDivisions!));
         //格式化数值
         var valueFormatter = themeData.scaleFormatter != null ? themeData.scaleFormatter!(value) : value.toString();
         //绘制刻度的值
@@ -1349,7 +1354,7 @@ class TDCapsuleSliderTickMarkShape extends SliderTickMarkShape {
         var x = dx - painter.size.width / 2;
         if (index == 0) {
           x = rect.left - trackHeight / 2;
-        } else if (index == themeData.divisions) {
+        } else if (index == themeData.renderDivisions) {
           x = rect.right - painter.size.width + trackHeight / 2;
         }
         painter.paint(context.canvas, Offset(x, center.dy - painter.height - 16));
